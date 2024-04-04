@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blue sky work group</title>
+</head>
+
+<body>
+    <input type="text" id="search" placeholder="Search...">
+    <button onclick="searchContent()">Search</button>
+    <div id="results"></div>
+
+    <script>
+        function searchContent() {
+            let searchValue = document.getElementById("search").value.toLowerCase();
+            let paragraphs = document.getElementsByTagName("p");
+            let results = [];
+
+            for (let i = 0; i < paragraphs.length; i++) {
+                let text = paragraphs[i].textContent.toLowerCase();
+                if (text.includes(searchValue)) {
+                    results.push(paragraphs[i].textContent);
+                }
+            }
+
+            let displayResults = results.join("<br>");
+            document.getElementById("results").innerHTML = displayResults;
+        }
+    </script>
+    
+    <p>Paragraph containing search content</p>
+    <p>Another paragraph that may have the search term</p>
+    <p>Yet another paragraph without the search term</p>
+</body>
+
+</html>
